@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta htt-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Garantia de Manutenções</title>
+     <link rel="icon" href="./img/Icone-Portifolio.ico">
+    <link rel="stylesheet" href="garantiamain.css">
+
+</head>
+
+<body>
+
+    <div class="dados">
+        <img src="./img/Fundo FB Calango.png" width="450">
+        <br/>
+        <h4>Cliente: </h4><br/>
+        <input type="text" id="cliente" /> <br /><br />
+
+        <h4>Vendedor(a): </h4><br/>
+        <input type="text" id="vendedor" /> <br /><br />
+
+        <h4>Aparelho:</h4> <br/>
+        <input type="text" id="aparelho" /> <br /><br />
+
+        <h4>Manutenção:</h4> <br/>
+        <input type="text" id="cor" /> <br /><br />
+
+        <h4>Valor R$: </h4><br/>
+        <input type="number" step="0,01" id="valor" /> <br /><br />
+
+
+        <a href onclick="gerarGarantia()" class="BUTTON_TRS">IMPRIMIR</a>
+        <br/>
+        
+
+    </div>
+    
+    <div class="print">
+        <img src="./img/Fundo FB Calango.png" width="650">
+        <h1>Termo de Garantia</h1>
+         <p>Cliente: <span id="garantia_cliente"></span></p>
+         <br/>
+         <p>Vendedor(a): <span id="garantia_vendedor"></span></p>
+         <br/>
+         <p>Aparelho: <span id="garantia_aparelho"></span></p>
+         <br/>
+         <p>Manutenção: <span id="garantia_cor"></span></p>
+         <br/>
+         <p>Valor R$: <span id="garantia_valor">0,00</span></p>
+         <br/>
+         <p>Data: <span id="garantia_data"></span></p>
+         <br/>
+
+         <p>
+Termo de Garantia
+<br/>
+Este termo de garantia estabelece os direitos e responsabilidades entre a empresa Calango iPhones e o proprietário do celular adquirido. Leia atentamente as cláusulas a seguir:
+<br/>
+1. Cobertura da Garantia: A garantia cobre exclusivamente defeitos de fabricação resultantes dos serviços de manutenção realizados pela Calango iPhones. Isso inclui componentes defeituosos substituídos, reparos mal executados ou falhas decorrentes do serviço prestado.
+
+2. Duração da Garantia: A garantia tem uma validade de 45 (quarenta e cinco) dias a partir da data de conclusão do serviço em seu dispositivo. Durante esse período, a Calango iPhones irá reparar ou substituir, a seu critério, quaisquer defeitos cobertos pela garantia sem custos adicionais.
+
+3. Exclusões da Garantia: Esta garantia não cobre danos causados por líquidos, mau uso, acidentes, queda, negligência, modificações não autorizadas, tentativas de reparo por terceiros, remoção de selos ou quaisquer outros danos resultantes de ações fora do controle da Calango iPhones.
+
+4. Requisitos da Garantia: Para acionar a garantia, você deve apresentar o certificado de garantia juntamente com a prova de compra original. O dispositivo também deve estar em boas condições de conservação e não ter sido modificado ou reparado por terceiros.
+
+5. Limitação da Responsabilidade: A responsabilidade da Calango iPhones limita-se exclusivamente aos serviços prestados e cobertos pela garantia. Em nenhuma circunstância a Calango iPhones será responsável por danos indiretos, consequenciais, lucros cessantes ou quaisquer outras perdas decorrentes do uso ou impossibilidade de uso do seu dispositivo.
+
+Por favor, leia atentamente os termos e condições acima antes de solicitar os serviços de manutenção da Calango iPhones. Ao prosseguir com o reparo, você concorda com todos os termos e condições mencionados neste Certificado de Garantia. 
+<br/>
+Ao adquirir este celular, o proprietário concorda em cumprir todas as cláusulas estabelecidas neste termo de garantia.
+            </p>
+
+    </div>
+
+    <script>
+        function gerarGarantia() {
+            document.getElementById('garantia_cliente').innerHTML = document.getElementById('cliente').value;
+            document.getElementById('garantia_vendedor').innerHTML = document.getElementById('vendedor').value;
+            document.getElementById('garantia_aparelho').innerHTML = document.getElementById('aparelho').value;
+            document.getElementById('garantia_cor').innerHTML = document.getElementById('cor').value;
+            document.getElementById('garantia_valor').innerHTML = parseFloat(document.getElementById('valor').value).toLocaleString('pt-br', {minimumFractionDigits: 2});
+            document.getElementById('garantia_data').innerHTML = dataAtual();
+            window.print();
+        }
+        function dataAtual() {
+            let data = new Date();
+            return data.getDate() + "/0" + (data.getMonth()+1) + "/" + data.getFullYear();
+        }
+
+    </script>
+</body>
+</html>
